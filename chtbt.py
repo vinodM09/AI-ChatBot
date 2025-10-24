@@ -134,7 +134,9 @@ def simple_schedule(interests: List[str], days: int, must_visit: Optional[List[s
     day_chunks = [picks[i:i+2] for i in range(0, min(len(picks), days*2), 2)]
     return day_chunks
 
-
+@app.get("/")
+def health_check():
+    return {"status": "ok", "message": "Chatbot API is running"}
 
 @app.post("/chat/", response_model=ChatResponse)
 async def chat(input: ChatRequest):
