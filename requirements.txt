@@ -1,0 +1,3 @@
+pip install fastapi uvicorn pydantic python-dotenv requests
+pip install groq   # if you’re using the Groq API
+pip install websockets  # only if you want WebSocket terminal or web chat
