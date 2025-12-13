@@ -76,7 +76,13 @@ FAQ_DATASET = load_jsonl("dataset.jsonl")
 class Conversation:
     def __init__(self):
         self.messages: List[Dict[str, str]] = [
-            {"role": "system", "content": "You are a helpful microgrid monitoring assistant, providing information about microgrid systems, their components, and best practices. Use the following FAQ data to assist users:\n" + json.dumps(FAQ_DATASET)}
+        {"role": "system", "content": (
+            "You are a microgrid monitoring assistant. "
+            "Always answer clearly and concisely in 50 to 60 words maximum. "
+            "Do not give long explanations. "
+            "Use the following FAQ data when relevant:\n"
+            + json.dumps(FAQ_DATASET)
+        )}
         ]
         self.active: bool = True
         self.itinerary: Optional[List[ItineraryDay]] = None
